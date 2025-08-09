@@ -230,10 +230,10 @@ const heroImg = document.getElementById("heroImage");
 function setHeroImage() {
   if (!heroImg) return;
   if (document.body.classList.contains("dark-mode")) {
-    heroImg.src = "/assets/img/beranda/light.webp";
-  } else {
-    heroImg.src = "/assets/img/beranda/dark.webp";
-  }
+  heroImg.src = "./assets/img/beranda/light.webp";
+} else {
+  heroImg.src = "./assets/img/beranda/dark.webp";
+}
 }
 
 if (localStorage.getItem("theme") === "dark") {
