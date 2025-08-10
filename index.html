@@ -684,18 +684,12 @@ const warnaWilayah = {
 // Data Aksara Lontara
 const adatLontara = {
   "Bone": { untuk: "Aksara digunakan untuk menulis adat (ade’), silsilah, dan hukum", sejarah: "Sekitar tahun 1300–1400 M, Lokasi awal munculnya bentuk aksara Bugis tertua, Ditemukan naskah silsilah tua di wilayah sungai Walannae–Cenrana", tahun: "Abad ke-14", daerah: "Walannae–Cenrana (soppeng - bone)" },
-
   "Wajo": { untuk: "Menulis aturan federasi Tellumpoccoe", sejarah: "Sekitar 1500–1550 M, Penyebaran oleh elite adat (arung) dalam sistem pemerintahan kolektif", tahun: "Abad ke-15 hingga 16", daerah: "Wajo" },
-
   "Soppeng": { untuk: "Digunakan sebagai alat tulis silsilah kerajaan", sejarah: "Bersamaan dengan Bone dan Wajo, Sekitar Abad ke 15-16, Menjadi bagian dari penguatan identitas Bugis melalui naskah tulis", tahun: "Abad ke-15", daerah: "Soppeng" },
-
   "Gowa": { untuk: "Digunakan di istana Raja Gowa IX: Karaeng Tumapa’risi’ Kallonna", sejarah: "Sekitar 1510–1546 M, Daeng Pamatte menyusun Lontara Makassar menjadi 19 huruf, Lontara Makassar berbeda bentuk dari Bugis, digunakan untuk catatan istana, hukum, dan surat dagang", tahun: "Abad ke-16", daerah: "Gowa" },
-
   "Luwu": { untuk: "Kitab hukum dan teks epik seperti Sureq I La Galigo", sejarah: "Salah satu kerajaan tertua di Sulawesi, Penyebaran terjadi seiring penguatan kerajaan Luwu dan perdagangan logam", tahun: "Abad ke-16", daerah: "Luwu" },
-
-   "Barru": { untuk: "Aksara digunakan dalam kontrak dagang, surat perjanjian, dan hukum adat", sejarah: "Terlibat dalam pelayaran dan perdagangan antar pulau", tahun: "Abad ke-16 hingga 17", daerah: "Wilayah Bugis pesisir (barru, sinjai, bulukumba)" }
+  "Barru": { untuk: "Aksara digunakan dalam kontrak dagang, surat perjanjian, dan hukum adat", sejarah: "Terlibat dalam pelayaran dan perdagangan antar pulau", tahun: "Abad ke-16 hingga 17", daerah: "Wilayah Bugis pesisir (barru, sinjai, bulukumba)" }
 };
-
 
 const cleanName = raw => raw.replace(/^Kabupaten\s+/i, "").replace(/^Kota\s+/i, "").trim();
 
@@ -750,53 +744,58 @@ fetch("sulsel.json")
     map.fitBounds(geojsonLontara.getBounds(), { padding: [20, 20] });
 
     // Legend warna
-    const legend = L.control({ position: "bottomright" });
-    legend.onAdd = () => {
-      const div = L.DomUtil.create("div", "info legend");
+const legend = L.control({ position: "bottomright" });
+legend.onAdd = () => {
+  const div = L.DomUtil.create("div", "info legend");
 
-       let html = `
-  <div style="
-    background: var(--background-color);
-    padding: 6px 10px;
-    border-radius: 6px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.15);
-    font-size: 10px;
-    max-height: 10vh;
-    overflow-y: auto;
-    max-width: 85vw;
-    margin: 6px;
-    color: var(--default-color);
-    -webkit-overflow-scrolling: touch;
-  ">
-    <strong style="font-size: 11px; color: var(--heading-color);">Keterangan Wilayah:</strong>
-    <div style="margin-top: 4px;">
-      ${Object.keys(warnaWilayah).map(w => `
-        <div style="margin: 2px 0;">
-          <i style="
-            background: ${warnaWilayah[w] || "#bbb"};
-            width: 9px;
-            height: 9px;
-            display: inline-block;
-            margin-right: 6px;
-            border-radius: 10px;
-          "></i>${w}
-        </div>`).join("")}
+  let html = `
+    <div style="
+      background: var(--background-color);
+      padding: 6px 10px;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.15);
+      font-size: 10px;
+      max-height: 90px; /* Gunakan px biar konsisten */
+      overflow-y: auto;
+      max-width: 200px; /* Lebar cukup untuk teks panjang */
+      margin: 6px;
+      color: var(--default-color);
+      -webkit-overflow-scrolling: touch;
+      word-wrap: break-word; /* Pecah kata kalau panjang */
+      white-space: normal; /* Izinkan teks turun ke baris baru */
+    ">
+      <strong style="font-size: 11px; color: var(--heading-color);">Keterangan Wilayah:</strong>
+      <div style="margin-top: 4px;">
+        ${Object.keys(warnaWilayah).map(w => `
+          <div style="margin: 2px 0;">
+            <i style="
+              background: ${warnaWilayah[w] || "#bbb"};
+              width: 9px;
+              height: 9px;
+              display: inline-block;
+              margin-right: 6px;
+              border-radius: 10px;
+            "></i>${w}
+          </div>`).join("")}
+      </div>
     </div>
-  </div>
-  <style>
-    @media (max-width: 768px) {
-      div[style*='Keterangan Wilayah'] {
-        max-height: 30vh !important;
-      }
-    }
-  </style>
-`;
+  `;
+
+  div.innerHTML = html;
+  return div;
+};
+legend.addTo(map);
+
+// Pastikan legend bisa di-scroll di HP
+setTimeout(() => {
+  const legendElement = document.querySelector('.info.legend');
+  if (legendElement) {
+    L.DomEvent.disableScrollPropagation(legendElement);
+    L.DomEvent.disableClickPropagation(legendElement);
+  }
+}, 500);
 
 
-      div.innerHTML = html;
-      return div;
-    };
-    legend.addTo(map);
   })
   .catch(err => {
     console.error("Gagal memuat GeoJSON:", err);
@@ -807,7 +806,6 @@ fetch("sulsel.json")
 map.on("popupopen", function (e) {
   const popup = e.popup;
   const content = popup.getContent();
-
   const closeBtn = popup._container.querySelector(".leaflet-popup-close-button");
 
   if (content.includes("popup-no-close")) {
