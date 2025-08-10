@@ -1751,8 +1751,8 @@ section,
 .service-details .content .features .feature-box {
   padding: 20px;
   background: var(--surface-color);
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  border-radius: 35px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   height: 100%;
   transition: 0.3s;
 }
@@ -1816,8 +1816,8 @@ section,
 .service-details .related-services {
   background: var(--surface-color);
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  border-radius: 35px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .service-details .related-services h4 {

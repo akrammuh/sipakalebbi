@@ -23,7 +23,7 @@ function containsBatak(text) {
 const quizArray = [
     { id: "0", question: "Huruf Batak Toba untuk bunyi “h” adalah?", options: ["ᯂ", "ᯠ", "ᯋ", "ᯇ"], correct: "ᯂ" },
     { id: "1", question: "Manakah di bawah ini yang merupakan lambang vokal “O” dalam aksara Batak?", options: ["ᯪ", "ᯐ", "ᯮ", "ᯬ"], correct: "ᯬ" },
-    { id: "2", question: "Manakah di bawah ini yang merupakan penulisan aksara Batak yang benar untuk bunyi “hu”?", options: ["ᯂᯪ", "ᯂᯮ", "ᯂᯩ", "ᯂᯬ"], correct: "ᯂᯮ" },
+    { id: "2", question: "Manakah di bawah ini yang merupakan penulisan aksara lontara yang benar untuk bunyi “ma”?", options: ["ᨐ", "ᨆ", "ᨁ", "ᨀ"], correct: "ᨆ" },
     { id: "3", question: "Berapa sub-suku Batak yang dikenal menggunakan Aksara Batak dalam sejarahnya?", options: ["2", "3", "6", "1"], correct: "6" },
     { id: "4", question: "Apa salah satu perbedaan utama antara Aksara Batak Toba dan Aksara Batak Karo?", options: ["Aksara Karo tidak memiliki simbol vokal","Aksara Toba lebih banyak digunakan untuk menulis doa Kristen saja","Aksara Karo memiliki beberapa bentuk huruf yang berbeda dari Toba dan pelafalan khas","Aksara Toba ditulis dari kanan ke kiri"], correct: "Aksara Karo memiliki beberapa bentuk huruf yang berbeda dari Toba dan pelafalan khas" },
     { id: "5", question: "Dalam Aksara Batak Karo, huruf untuk bunyi “ba” adalah?", options: ["ᯅ", "ᯇ", "ᯆ", "ᯄ"], correct: "ᯆ" },
