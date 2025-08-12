@@ -8,33 +8,30 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  <!-- Favicons -->
+
   <link href="assets/img/" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.fullscreen/Control.FullScreen.css" />
 
-  <!-- Fonts -->
+
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial:wght@400&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
+
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-
   <link href="assets/css/main.css" rel="stylesheet">
-
-  
+<link rel="preload" as="image" href="assets/img/beranda/dark.webp" fetchpriority="high" type="image/webp">
+<link rel="preload" as="image" href="assets/img/beranda/light.webp" type="image/webp">
 </head>
 
 <body class="index-page light-background">
   
-
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
@@ -93,11 +90,19 @@
           </div>
           <div class="col-lg-6">
   <div class="hero-image">
-    <img id="heroImage" src="assets/img/beranda/light.webp" alt="Portfolio Hero Image" class="img-fluid">
+    <img 
+      id="heroImage"
+      src="assets/img/beranda/dark.webp" 
+      alt="Portfolio Hero Image" 
+      class="img-fluid"
+      width="407" height="428"
+      fetchpriority="high" 
+      decoding="async">
     <div class="shape-1"></div>
     <div class="shape-2"></div>
   </div>
 </div>
+
         </div>
 
       </div>
@@ -108,7 +113,7 @@
 
 
 
- <!-- Services Section -->
+
     <section id="services" class="services section">
 
       <!-- Section Title -->
@@ -137,7 +142,7 @@
                 <div class="service-item">
                   <i class="bi-type"></i>
                     <h3>
-                      <a href="tabel.html" target="_blank">
+                      <a href="lontara.html" target="_blank">
                         Eksplorasi Huruf Lontara
                       </a>
                     </h3>
@@ -636,7 +641,7 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-  <!-- Main JS File -->
+
   <script src="assets/js/main.js"></script>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.fullscreen/Control.FullScreen.js"></script>
@@ -824,7 +829,7 @@ map.on("popupopen", function (e) {
   }
 });
 
-// Layers Control (basemap + overlay lontara)
+
 L.control.layers(basemaps, { "Wilayah Aksara Lontara": layerLontara }).addTo(map);
 </script>
 
