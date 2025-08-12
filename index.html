@@ -488,11 +488,11 @@
       </div>
 
       <!-- Gambar (sekarang di kanan) -->
-      <div class="col-lg-6 order-1 order-lg-2 position-relative" data-aos="fade-left" data-aos-delay="200">
-        <div class="about-image">
-          <div id="map"></div>
-        </div>
-      </div>
+    <!-- tempat peta -->
+<div id="map" style="height: 360px; min-height: 200px; background: #f2f2f2; display:flex;align-items:center;justify-content:center;">
+  <div class="map-loading">Memuat peta…</div>
+</div>
+
 
     </div>
   </div>
@@ -646,192 +646,71 @@
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.fullscreen/Control.FullScreen.js"></script>
 <script>
-const map = L.map("map", {
-  fullscreenControl: true
-}).setView([-4.5, 119.5], 7);
+document.addEventListener("DOMContentLoaded", function () {
+  const mapEl = document.getElementById('map');
+  if (!mapEl) return;
 
-map.attributionControl.setPrefix(''); // Hapus Leaflet attribution
-
-// Basemap layers
-const basemaps = {
-  "OSM": L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "🗺️ <strong>Wilayah Aksara Lontara</strong> © sipakalebbi.id"
-  }),
-  "Satelit": L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
-    attribution: "🗺️ <strong>Wilayah Aksara Lontara</strong> © sipakalebbi.id"
-  })
-};
-
-basemaps["Satelit"].addTo(map);
-
-// LayerGroup untuk overlay Aksara Lontara
-const layerLontara = L.layerGroup();
-
-// Warna-warna wilayah
-const warnaWilayah = {
-  "Bantaeng": "#e6194b",
-  "Barru": "#3cb44b",
-  "Bone": "#ffe119",
-  "Bulukumba": "#4363d8",
-  "Enrekang": "#f58231",
-  "Gowa": "#911eb4",
-  "Jeneponto": "#46f0f0",
-  "Kepulauan Selayar": "#f032e6",
-  "Luwu": "#bcf60c",
-  "Luwu Timur": "#fabebe",
-  "Luwu Utara": "#008080",
-  "Maros": "#e6beff",
-  "Pangkajene dan Kepulauan": "#9a6324",
-  "Parepare": "#808000",
-  "Pinrang": "#ffd700",
-  "Sidenreng Rappang": "#000075",
-  "Sinjai": "#ff7f50",
-  "Soppeng": "#00ced1",
-  "Takalar": "#ff1493",
-  "Tana Toraja": "#7fffd4",
-  "Toraja Utara": "#da70d6",
-  "Wajo": "#ff4500",
-  "Palopo": "#20b2aa",
-  "Makassar": "#b22222"
-};
-
-// Data Aksara Lontara
-const adatLontara = {
-  "Bone": { untuk: "Aksara digunakan untuk menulis adat (ade’), silsilah, dan hukum", sejarah: "Sekitar tahun 1300–1400 M, Lokasi awal munculnya bentuk aksara Bugis tertua, Ditemukan naskah silsilah tua di wilayah sungai Walannae–Cenrana", tahun: "Abad ke-14", daerah: "Walannae–Cenrana (soppeng - bone)" },
-  "Wajo": { untuk: "Menulis aturan federasi Tellumpoccoe", sejarah: "Sekitar 1500–1550 M, Penyebaran oleh elite adat (arung) dalam sistem pemerintahan kolektif", tahun: "Abad ke-15 hingga 16", daerah: "Wajo" },
-  "Soppeng": { untuk: "Digunakan sebagai alat tulis silsilah kerajaan", sejarah: "Bersamaan dengan Bone dan Wajo, Sekitar Abad ke 15-16, Menjadi bagian dari penguatan identitas Bugis melalui naskah tulis", tahun: "Abad ke-15", daerah: "Soppeng" },
-  "Gowa": { untuk: "Digunakan di istana Raja Gowa IX: Karaeng Tumapa’risi’ Kallonna", sejarah: "Sekitar 1510–1546 M, Daeng Pamatte menyusun Lontara Makassar menjadi 19 huruf, Lontara Makassar berbeda bentuk dari Bugis, digunakan untuk catatan istana, hukum, dan surat dagang", tahun: "Abad ke-16", daerah: "Gowa" },
-  "Luwu": { untuk: "Kitab hukum dan teks epik seperti Sureq I La Galigo", sejarah: "Salah satu kerajaan tertua di Sulawesi, Penyebaran terjadi seiring penguatan kerajaan Luwu dan perdagangan logam", tahun: "Abad ke-16", daerah: "Luwu" },
-  "Barru": { untuk: "Aksara digunakan dalam kontrak dagang, surat perjanjian, dan hukum adat", sejarah: "Terlibat dalam pelayaran dan perdagangan antar pulau", tahun: "Abad ke-16 hingga 17", daerah: "Wilayah Bugis pesisir (barru, sinjai, bulukumba)" }
-};
-
-const cleanName = raw => raw.replace(/^Kabupaten\s+/i, "").replace(/^Kota\s+/i, "").trim();
-
-fetch("sulsel.json")
-  .then(res => res.json())
-  .then(data => {
-    const wilayahSet = new Set();
-
-    const geojsonLontara = L.geoJSON(data, {
-      style: feature => {
-        const provRaw = feature.properties.province || "";
-        const prov = cleanName(provRaw);
-        wilayahSet.add(prov);
-        return {
-          color: "#fff",
-          weight: 1,
-          fillColor: warnaWilayah[prov] || "#bbb",
-          fillOpacity: 0.6
-        };
-      },
-      onEachFeature: (feature, layer) => {
-        const prov = cleanName(feature.properties.province || "");
-        const info = adatLontara[prov];
-
-        let content = "";
-
-        if (info) {
-          content = `
-            <h2 style="color:#2F6E4C;  margin-bottom:6px;">${prov}</h2>
-            <p><strong>Tahun:</strong> ${info.tahun}</p>
-            <p><strong>Sejarah Singkat:</strong> ${info.sejarah}</p>
-            <p><strong>Daerah Persebaran:</strong> ${info.daerah}</p>
-            <p><strong>Digunakan Untuk:</strong> ${info.untuk}</p>
-          `;
-        } else {
-          content = `<div class="popup-no-close"><strong>${prov}</strong></div>`;
-        }
-
-        layer.bindPopup(content);
-
-        layer.on("click", e => {
-          map.fitBounds(layer.getBounds(), { padding: [20, 20] });
-          setTimeout(() => layer.openPopup(e.latlng), 300);
-        });
-
-        layer.on("mouseover", () => layer.setStyle({ fillOpacity: 0.9 }));
-        layer.on("mouseout", () => layer.setStyle({ fillOpacity: 0.6 }));
-      }
-    }).addTo(layerLontara);
-
-    layerLontara.addTo(map);
-    map.fitBounds(geojsonLontara.getBounds(), { padding: [20, 20] });
-
-    // Legend warna
-const legend = L.control({ position: "bottomright" });
-legend.onAdd = () => {
-  const div = L.DomUtil.create("div", "info legend");
-
-  let html = `
-    <div style="
-      background: var(--background-color);
-      padding: 6px 10px;
-      border-radius: 6px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.15);
-      font-size: 10px;
-      max-height: 90px; /* Gunakan px biar konsisten */
-      overflow-y: auto;
-      max-width: 200px; /* Lebar cukup untuk teks panjang */
-      margin: 6px;
-      color: var(--default-color);
-      -webkit-overflow-scrolling: touch;
-      word-wrap: break-word; /* Pecah kata kalau panjang */
-      white-space: normal; /* Izinkan teks turun ke baris baru */
-    ">
-      <strong style="font-size: 11px; color: var(--heading-color);">Keterangan Wilayah:</strong>
-      <div style="margin-top: 4px;">
-        ${Object.keys(warnaWilayah).map(w => `
-          <div style="margin: 2px 0;">
-            <i style="
-              background: ${warnaWilayah[w] || "#bbb"};
-              width: 9px;
-              height: 9px;
-              display: inline-block;
-              margin-right: 6px;
-              border-radius: 10px;
-            "></i>${w}
-          </div>`).join("")}
-      </div>
-    </div>
-  `;
-
-  div.innerHTML = html;
-  return div;
-};
-legend.addTo(map);
-
-// Pastikan legend bisa di-scroll di HP
-setTimeout(() => {
-  const legendElement = document.querySelector('.info.legend');
-  if (legendElement) {
-    L.DomEvent.disableScrollPropagation(legendElement);
-    L.DomEvent.disableClickPropagation(legendElement);
+  function loadCSS(href) {
+    return new Promise((resolve, reject) => {
+      if (document.querySelector('link[href="' + href + '"]')) return resolve();
+      const l = document.createElement('link');
+      l.rel = 'stylesheet';
+      l.href = href;
+      l.onload = resolve;
+      l.onerror = reject;
+      document.head.appendChild(l);
+    });
   }
-}, 500);
 
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      if (document.querySelector('script[src="' + src + '"]')) return resolve();
+      const s = document.createElement('script');
+      s.src = src;
+      s.defer = true;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.body.appendChild(s);
+    });
+  }
 
-  })
-  .catch(err => {
-    console.error("Gagal memuat GeoJSON:", err);
-    alert("Gagal memuat peta. Pastikan file sulsel.json tersedia dan valid.");
-  });
+  const leafletCss = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+  const leafletJs  = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  const petaJs = 'assets/js/peta.js'; // pastikan path benar di repo
 
-// Hilangkan tombol close popup untuk class popup-no-close
-map.on("popupopen", function (e) {
-  const popup = e.popup;
-  const content = popup.getContent();
-  const closeBtn = popup._container.querySelector(".leaflet-popup-close-button");
+  function injectMap() {
+    // load CSS + leaflet script, lalu peta.js
+    Promise.all([loadCSS(leafletCss), loadScript(leafletJs)])
+      .then(() => loadScript(petaJs))
+      .catch(err => {
+        console.error('Gagal load Leaflet atau peta.js', err);
+        if (mapEl) mapEl.innerHTML = '<div style="padding:12px;">Gagal memuat peta.</div>';
+      });
+  }
 
-  if (content.includes("popup-no-close")) {
-    if (closeBtn) closeBtn.style.display = "none";
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries, obs) => {
+      if (entries[0].isIntersecting) {
+        // prefer idle time
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(injectMap, { timeout: 1000 });
+        } else {
+          setTimeout(injectMap, 600);
+        }
+        obs.disconnect();
+      }
+    }, { rootMargin: '300px' }); // 300px sebelum terlihat, tweak sesuai kebutuhan
+    io.observe(mapEl);
   } else {
-    if (closeBtn) closeBtn.style.display = "";
+    // fallback: saat load, jalankan ketika browser idle
+    window.addEventListener('load', () => {
+      if ('requestIdleCallback' in window) requestIdleCallback(injectMap, { timeout: 1500 });
+      else setTimeout(injectMap, 1500);
+    });
   }
 });
-
-
-L.control.layers(basemaps, { "Wilayah Aksara Lontara": layerLontara }).addTo(map);
 </script>
+
 
 
 
