@@ -227,21 +227,20 @@ const toggleBtn = document.getElementById("theme-toggle");
 const themeIcon = toggleBtn ? toggleBtn.querySelector("i") : null;
 const heroImg = document.getElementById("heroImage");
 
-// Fungsi update gambar sesuai tema
-function updateHeroImage() {
+function setHeroImage() {
+  if (!heroImg) return;
   if (document.body.classList.contains("dark-mode")) {
-    heroImg.src = "assets/img/beranda/light.webp"; // Dark mode → gambar light
+    heroImg.src = "/assets/img/beranda/light.webp";
   } else {
-    heroImg.src = "assets/img/beranda/dark.webp"; // Light mode → gambar dark
+    heroImg.src = "/assets/img/beranda/dark.webp";
   }
 }
 
-// Atur tema awal dari localStorage
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-mode");
   if (themeIcon) themeIcon.classList.replace("bi-moon", "bi-sun");
 }
-updateHeroImage();
+setHeroImage();
 
 if (toggleBtn) {
   toggleBtn.addEventListener("click", () => {
@@ -255,9 +254,14 @@ if (toggleBtn) {
       if (themeIcon) themeIcon.classList.replace("bi-sun", "bi-moon");
     }
 
-    updateHeroImage();
+    setHeroImage();
   });
 }
+
+
+
+
+
 
 
 
