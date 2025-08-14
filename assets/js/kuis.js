@@ -21,16 +21,16 @@ function containsBatak(text) {
 
 
 const quizArray = [
-    { id: "0", question: "Huruf Batak Toba untuk bunyi “h” adalah?", options: ["ᯂ", "ᯠ", "ᯋ", "ᯇ"], correct: "ᯂ" },
-    { id: "1", question: "Manakah di bawah ini yang merupakan lambang vokal “O” dalam aksara Batak?", options: ["ᯪ", "ᯐ", "ᯮ", "ᯬ"], correct: "ᯬ" },
+    { id: "0", question: "Aksara Lontara berakar pada aksara apa dari India Selatan?", options: ["Gujarati", "Tamil", "Brahmi", "Devanagari"], correct: "Brahmi" },
+    { id: "1", question: "Di wilayah Bugis manakah aksara Lontara pertama kali berkembang sekitar tahun 1400 M?", options: ["Makassar", "Cenrana-Walannae", "Soppeng", "Gowa"], correct: "Cenrana-Walannae" },
     { id: "2", question: "Manakah di bawah ini yang merupakan penulisan aksara lontara yang benar untuk bunyi “ma”?", options: ["ᨐ", "ᨆ", "ᨁ", "ᨀ"], correct: "ᨆ" },
-    { id: "3", question: "Berapa sub-suku Batak yang dikenal menggunakan Aksara Batak dalam sejarahnya?", options: ["2", "3", "6", "1"], correct: "6" },
-    { id: "4", question: "Apa salah satu perbedaan utama antara Aksara Batak Toba dan Aksara Batak Karo?", options: ["Aksara Karo tidak memiliki simbol vokal","Aksara Toba lebih banyak digunakan untuk menulis doa Kristen saja","Aksara Karo memiliki beberapa bentuk huruf yang berbeda dari Toba dan pelafalan khas","Aksara Toba ditulis dari kanan ke kiri"], correct: "Aksara Karo memiliki beberapa bentuk huruf yang berbeda dari Toba dan pelafalan khas" },
-    { id: "5", question: "Dalam Aksara Batak Karo, huruf untuk bunyi “ba” adalah?", options: ["ᯅ", "ᯇ", "ᯆ", "ᯄ"], correct: "ᯆ" },
-    { id: "6", question: "Aksara Batak digunakan terutama oleh masyarakat di provinsi?", options: ["Sumatera Barat", "Sumatera Utara", "Jambi", "Aceh"], correct: "Sumatera Utara" },
-    { id: "7", question: "Aksara Batak termasuk dalam rumpun aksara...?", options: ["Latin", "Brahmi", "Arab", "Romawi"], correct: "Brahmi" },
-    { id: "8", question: "Aksara Batak pada masa lalu banyak digunakan untuk...?", options: ["Surat cinta","Tulisan suci dan hukum adat","Iklan dan majalah","Administrasi kolonial"], correct: "Tulisan suci dan hukum adat" },
-    { id: "9", question: "Apa nama naskah kuno Batak yang ditulis menggunakan kulit kayu?", options: ["Ulos", "Pustaha", "Lontar", "Mandala"], correct: "Pustaha" }
+    { id: "3", question: "Siapa ahli Belanda yang memprakarsai cetak aksara Lontara pada abad ke-19?", options: ["R.A. Kern", "B.F. Matthes", "Christopher Miller", "Tetterode"], correct: "B.F. Matthes" },
+    { id: "4", question: "Aksara Lontara kini masih digunakan untuk?", options: ["Dokumen resmi pemerintah","Media pembelajaran budaya dan sastra","Komunikasi sehari-hari di kota besar","Semua jawaban benar"], correct: "Media pembelajaran budaya dan sastra" },
+    { id: "5", question: "Manakah di bawah ini yang merupakan penulisan aksara lontara yang benar untuk bunyi “nra”?", options: ["ᨀ", "ᨃ", "ᨖ", "ᨋ"], correct: "ᨋ" },
+    { id: "6", question: "Aksara Lontara digunakan terutama oleh masyarakat di provinsi?", options: ["Sumatera Barat", "Sulawesi Tengah", "Jawa Timur", "Sulawesi Selatan"], correct: "Sulawesi Selatan" },
+    { id: "7", question: "Manakah di bawah ini yang merupakan penulisan aksara lontara yang benar untuk bunyi “bi”?", options: ["ᨉᨗ", "ᨂᨚ", "ᨅᨗ", "ᨒᨘ"], correct: "ᨅᨗ" },
+    { id: "8", question: "Sebelum kertas tersedia, aksara Lontara biasanya ditulis di...?", options: ["Batu prasasti","Daun lontar","Kulit kayu","Kertas Eropa"], correct: "Daun lontar" },
+    { id: "9", question: "Semua huruf berikut termasuk konsonan dasar Lontara, kecuali..", options: ["ᨀ (ka)", "ᨆ (ma)", "ᨊ (na)", "ᨕ (a)"], correct: "ᨕ (a)" }
 ];
 
 
