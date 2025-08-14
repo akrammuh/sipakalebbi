@@ -4,38 +4,50 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Pelafalan - Sipakalebbi.id</title>
+  <title>Galeri - Sipakalebbi.id</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-
+  <!-- Favicons -->
   <link href="assets/img/logoo.webp" rel="icon">
   <link href="assets/img/logoo.webp" rel="apple-touch-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-
-
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial:wght@400&display=swap" rel="stylesheet">
 
-
+  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-
+  <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  .caption {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 1rem;
+}
 
-    <link rel="stylesheet" href="assets/css/tts.css">
+.rounded-img {
+  border-radius: 30px;
+}
+
+.image-item {
+  margin-bottom: 1.5rem;
+}
+</style>
+
 </head>
 
-<body class="starter-page-page" onload="document.getElementById('inp_txt').focus();">
+<body class="portfolio-details-page">
 
- <header id="header" class="header d-flex align-items-center sticky-top">
+  <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
        <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
@@ -53,15 +65,15 @@
               <li><a href="cerita-rakyat.html">Cerita rakyat & naskah kuno</a></li>
             </ul>
           </li>
-          <li class="dropdown"><a href="#" class="active"><span>Fitur</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="#"><span>Fitur</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="transliterasi.html">Transliterasi latin ⇄ aksara lontara</a></li>
-              <li><a href="#">Pelafalan & canvas aksara lontara</a></li>
-              <li><a href="#">Game kuis aksara & budaya bugis</a></li>
-              <li><a href="#">Museum virtual 360°</a></li>
+              <li><a href="tts.html">Pelafalan & canvas aksara lontara</a></li>
+              <li><a href="kuis.html">Game kuis aksara & budaya bugis</a></li>
+              <li><a href="360.html">Museum virtual 360°</a></li>
             </ul>
           </li>
-          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="#" class="active">Galeri</a></li>
           <li><a href="tentang-kami.html">Tentang Kami</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -84,59 +96,66 @@
       <div class="breadcrumbs">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i> Beranda</a></li>
-            <li class="breadcrumb-item active current">Pelafalan aksara lontara</li>
+            <li class="breadcrumb-item"><a href="#"><i class="bi bi-house"></i> Beranda</a></li>
+            <li class="breadcrumb-item active current">Galeri</li>
           </ol>
         </nav>
       </div>
 
       <div class="title-wrapper">
-        <h1>Pelafalan & Canvas Digital Aksara Lontara</h1>
-        <p>Ayo belajar Aksara Lontara, dengarkan pelafalannya dan coba tulis sendiri!</p>
+        <h1>Galeri</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
       </div>
     </div><!-- End Page Title -->
 
+    <!-- Portfolio Details Section -->
+    <section id="portfolio-details" class="portfolio-details section">
 
+      <div class="container" data-aos="fade-up">
 
+        <div class="row gy-4 g-lg-5">
+          <div class="col-lg-6">
+  <div class="image-item">
+    <img src="assets/img/pengenalan.webp" class="img-fluid mb-2 rounded-img" alt="">
+    <p class="caption">Pengenalan Aksara</p>
+  </div>
 
+  <div class="image-item">
+    <img src="assets/img/sejarah.webp" class="img-fluid mb-2 rounded-img" alt="">
+    <p class="caption">Sejarah Aksara</p>
+  </div>
 
-<section id="starter-section" class="starter-section section">
-      <div class="container">
-        <div class="row gy-5">
-          <div class="col-lg-6 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
-              <div class="flashcard">
-         <p style="font-family: 'Poppins', sans-serif;">Aksara dasar:</p>
-          <div id="aksaraDisplay" style="font-family: 'Noto Sans Bugis', serif;">ᯀ</div><br>
-          <div id="latinDisplay">A</div>
-          <div class="audio-button">
-            <button onclick="playAudio()"><i class="fas fa-volume-up"></i>Dengar</button>
-          </div>
-          <button onclick="prevCard()"><i class="fas fa-arrow-left"></i>Sebelumnya</button>
-          <button onclick="nextCard()">Selanjutnya <i class="fas fa-arrow-right"></i></button>
+  <div class="image-item">
+    <img src="assets/img/cerita-rakyat.webp" class="img-fluid mb-2 rounded-img" alt="">
+    <p class="caption">Cerita Rakyat</p>
+  </div>
+</div>
+
+ <div class="col-lg-6">
+  <div class="image-item">
+    <img src="assets/img/pengenalan.webp" class="img-fluid mb-2 rounded-img" alt="">
+    <p class="caption">Pengenalan Aksara</p>
+  </div>
+
+  <div class="image-item">
+    <img src="assets/img/sejarah.webp" class="img-fluid mb-2 rounded-img" alt="">
+    <p class="caption">Sejarah Aksara</p>
+  </div>
+
+  <div class="image-item">
+    <img src="assets/img/cerita-rakyat.webp" class="img-fluid mb-2 rounded-img" alt="">
+    <p class="caption">Cerita Rakyat</p>
+  </div>
+</div>
+
         </div>
-          </div>
+      </div>
 
-          <div class="col-lg-6 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
-             <canvas id="drawCanvas" width="600" height="300"></canvas>
-        <br />
-        <button onclick="clearCanvas()"><i class="fas fa-eraser"></i>Hapus</button>
-          </div>
-
-          <div class="col-lg-12 ps-lg-5" data-aos="fade-up" data-aos-delay="300">
-              <div role="main">
-                      <div class="grid7 firstcol">
-                        <p>Kamu bisa menekan tombol Dengar untuk mengetahui pelafalan tiap huruf, lalu latih kemampuanmu dengan menulis aksara dasar dan gabungan dengan tanda vokal (ana' sure' atau ana' lontara') di kolom kanan/bawah.</p>
-                      </div>
-              </div>
-          </div>
-
-          </div>
-        </div>
-    </section>
+    </section><!-- /Portfolio Details Section -->
 
   </main>
 
-   <footer id="footer" class="footer">
+  <footer id="footer" class="footer">
 
     <div class="container">
       <div class="copyright text-center ">
@@ -150,11 +169,12 @@
 
   </footer>
 
-
+  <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-
+  <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -162,9 +182,9 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-
+  <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-<script src="assets/js/tts.js"></script>
+
 </body>
 
 </html>
