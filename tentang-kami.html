@@ -5,10 +5,16 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Tentang kami - Sipakalebbi.id</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content="Sipakalebbi.id adalah Platform digital pelestarian budaya bugis & aksara Lontara">
+  <meta name="keywords" content="Aksara Bugis, Budaya Bugis, Sipakalebbi, Tulisan Lontara, Sejarah Bugis, Belajar Aksara Lontara">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Sipakalebbi.id | Merangkai Warisan Bugis dalam Wajah Digital">
+  <meta property="og:description" content="Platform digital untuk belajar dan melestarikan aksara dan budaya Bugis">
+  <meta property="og:url" content="https://www.sipakalebbi.id">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.sipakalebbi.id/assets/img/logoo.webp">
 
-  <!-- Favicons -->
+  
   <link href="assets/img/logoo.webp" rel="icon">
   <link href="assets/img/logoo.webp" rel="apple-touch-icon">
 
@@ -46,6 +52,11 @@
 </head>
 
 <body class="portfolio-details-page">
+
+  <div id="preloader">
+    <div class="aksara-loader" id="aksaraLoader">ᨀ</div>
+    <p class="loading-text">Mohon bersabar, tunggu sebentar ya...</p>
+  </div>
 
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
@@ -88,7 +99,7 @@
     </div>
   </header>
 
-  <main class="main">
+  <main class="main" id="app">
 
     <!-- Page Title -->
     <div class="page-title">
@@ -127,10 +138,13 @@
               <div class="portfolio-description">
                 <h2>Sipakalebbi.id</h2>
                 <p>
-                  Sipakalebbi.id adalah platform digital yang didedikasikan untuk melestarikan dan memperkenalkan budaya Suku Bugis, khususnya Aksara Lontara, kepada masyarakat luas. Kami percaya bahwa warisan budaya adalah identitas yang harus dijaga, dipelajari, dan diwariskan kepada generasi berikutnya.
+                  <strong>Sipakalebbi.id</strong> adalah platform digital yang didedikasikan untuk melestarikan dan memperkenalkan budaya Suku Bugis, khususnya Aksara Lontara, kepada masyarakat luas. Kami percaya bahwa warisan budaya adalah identitas yang harus dijaga, dipelajari, dan diwariskan kepada generasi berikutnya.
                 </p>
                 <p>
                   Melalui situs ini, kami menghadirkan berbagai konten interaktif, mulai dari pengenalan lengkap Aksara Lontara beserta diakritiknya (ana' sure'), sejarah Aksara Lontara, cerita rakyat, hingga naskah kuno Suku Bugis, serta dokumentasi kekayaan budaya Bugis dalam bentuk tulisan dan gambar. Tujuan kami adalah memastikan bahwa kearifan lokal dan sistem penulisan tradisional Bugis tetap hidup di tengah perkembangan teknologi modern.
+                </p>
+                <p>
+                  <strong>Sipakalebbi.id</strong> hadir sebagai media pembelajaran, eksplorasi dan pelestarian budaya suku Bugis. Kami ingin menjadi jembatan antara generasi masa kini dengan warisan leluhur, memberikan ruang bagi siapa pun, baik masyarakat Bugis maupun non-Bugis untuk mengenal, mempelajari, dan mencintai kebudayaan Bugis. Melalui fitur-fitur edukatif dan interaktif, Sipakalebbi.id diharapkan dapat menjadi sumber referensi terpercaya sekaligus wadah apresiasi terhadap identitas budaya yang kaya dan luhur.
                 </p>
               </div>
             </div>
@@ -189,7 +203,23 @@
 
                 <p>
                   Kami berharap, melalui Sipakalebbi.id, warisan budaya Bugis dapat terus dikenal, dipelajari, dan dicintai, tidak hanya oleh masyarakat Bugis, tetapi juga oleh seluruh dunia.
-                </p>
+                </p><br>
+
+
+
+
+                <h2>Makna Backsound – Tari Padduppa</h2>
+<p>
+  Sound yang digunakan pada website ini adalah musik pengiring <em>Tari Padduppa</em>, 
+  tarian tradisional Bugis yang bermakna penyambutan tamu kehormatan. Dalam budaya Bugis, 
+  <em>Tari Padduppa</em> melambangkan keramahan, penghormatan, dan rasa syukur atas kedatangan tamu.
+</p>
+<p>
+  Dengan memilih sound ini, <strong>Sipakalebbi.id</strong> ingin menghadirkan suasana hangat 
+  layaknya tamu yang disambut di tanah Bugis — menyatukan nilai <em>sipakalebbi</em> (saling menghormati) 
+  dalam setiap interaksi di ruang digital.
+</p>
+
               </div>
             </div>
           </div>
@@ -216,6 +246,11 @@
   </footer>
 
   <!-- Scroll Top -->
+   <a href="#" id="music-button" class="music-button">
+    <i class="bi bi-music-note-beamed"></i>
+  </a>
+  <audio id="background-music" src="assets/sounds/padduppa.mp3" preload="auto" loop></audio>
+
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->

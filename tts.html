@@ -5,8 +5,14 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Pelafalan - Sipakalebbi.id</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content="Sipakalebbi.id adalah Platform digital pelestarian budaya bugis & aksara Lontara">
+  <meta name="keywords" content="Aksara Bugis, Budaya Bugis, Sipakalebbi, Tulisan Lontara, Sejarah Bugis, Belajar Aksara Lontara">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Sipakalebbi.id | Merangkai Warisan Bugis dalam Wajah Digital">
+  <meta property="og:description" content="Platform digital untuk belajar dan melestarikan aksara dan budaya Bugis">
+  <meta property="og:url" content="https://www.sipakalebbi.id">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.sipakalebbi.id/assets/img/logoo.webp">
 
 
   <link href="assets/img/logoo.webp" rel="icon">
@@ -33,7 +39,12 @@
     <link rel="stylesheet" href="assets/css/tts.css">
 </head>
 
-<body class="starter-page-page" onload="document.getElementById('inp_txt').focus();">
+<body class="starter-page-page">
+
+  <div id="preloader">
+    <div class="aksara-loader" id="aksaraLoader">ᨀ</div>
+    <p class="loading-text">Mohon bersabar, tunggu sebentar ya...</p>
+  </div>
 
  <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
@@ -57,8 +68,8 @@
             <ul>
               <li><a href="transliterasi.html">Transliterasi latin ⇄ aksara lontara</a></li>
               <li><a href="#">Pelafalan & canvas aksara lontara</a></li>
-              <li><a href="#">Game kuis aksara & budaya bugis</a></li>
-              <li><a href="#">Museum virtual 360°</a></li>
+              <li><a href="kuis.html">Game kuis aksara & budaya bugis</a></li>
+              <li><a href="360.html">Museum virtual 360°</a></li>
             </ul>
           </li>
           <li><a href="tentang-kami.html">Tentang Kami</a></li>
@@ -76,7 +87,7 @@
     </div>
   </header>
 
-  <main class="main">
+  <main class="main" id="app">
 
     <!-- Page Title -->
     <div class="page-title">
@@ -149,6 +160,10 @@
 
   </footer>
 
+<a href="#" id="music-button" class="music-button">
+    <i class="bi bi-music-note-beamed"></i>
+  </a>
+  <audio id="background-music" src="assets/sounds/padduppa.mp3" preload="auto" loop></audio>
 
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

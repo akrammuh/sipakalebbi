@@ -186,5 +186,19 @@ document.getElementById("back-button").addEventListener("click", () => {
     window.location.href = "index.html";
 });
 
-
+document.addEventListener('contextmenu', event => event.preventDefault());
+  document.onkeydown = function(e) {
+    if (
+      e.keyCode === 123 ||
+      (e.ctrlKey && e.shiftKey && e.keyCode === 'I'.charCodeAt(0)) ||
+      (e.ctrlKey && e.shiftKey && e.keyCode === 'C'.charCodeAt(0)) ||
+      (e.ctrlKey && e.shiftKey && e.keyCode === 'J'.charCodeAt(0)) ||
+      (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0)) ||
+      (e.ctrlKey && e.shiftKey && e.keyCode === 'K'.charCodeAt(0)) ||
+      (e.ctrlKey && e.shiftKey && e.keyCode === 'E'.charCodeAt(0)) ||
+      (e.ctrlKey && e.altKey && e.keyCode === 'I'.charCodeAt(0))
+    ) {
+      return false;
+    }
+  };
 

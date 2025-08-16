@@ -262,6 +262,99 @@ if (toggleBtn) {
 
 
 
+const musicButton = document.getElementById('music-button');
+if (musicButton) {
+  const musicIcon = musicButton.querySelector('i');
+  const audio = document.getElementById('background-music');
+
+  let isPlaying = false;
+  audio.loop = true;
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 100) {
+      musicButton.classList.add('show');
+    } else {
+      musicButton.classList.remove('show');
+    }
+  });
+
+  musicButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (!isPlaying) {
+      audio.play().catch(() => {
+        alert('Audio tidak bisa diputar otomatis. Silakan klik tombol play lagi.');
+      });
+      musicIcon.classList.add('putar');
+      isPlaying = true;
+    } else {
+      audio.pause();
+      musicIcon.classList.remove('putar');
+      isPlaying = false;
+    }
+  });
+}
+
+
+
+
+console.log("Script preloader dimulai");
+  const aksaraBugis = ["ᨀ", "ᨁ", "ᨂ", "ᨃ", "ᨄ", "ᨅ", "ᨆ", "ᨇ"];
+  let current = 0;
+  const aksaraLoader = document.getElementById("aksaraLoader");
+
+  if (aksaraLoader) {
+    aksaraLoader.textContent = aksaraBugis[current];
+    current = (current + 1) % aksaraBugis.length;
+
+    const aksaraInterval = setInterval(() => {
+      aksaraLoader.textContent = aksaraBugis[current];
+      current = (current + 1) % aksaraBugis.length;
+    }, 300);
+
+    function handleLoaded() {
+      console.log("Halaman selesai dimuat, sembunyikan preloader");
+
+      const preloader = document.getElementById("preloader");
+      const kontenUtama = document.getElementById("app");
+
+      if (preloader && kontenUtama) {
+        preloader.style.opacity = 0;
+
+        setTimeout(() => {
+          preloader.style.display = "none";
+          clearInterval(aksaraInterval);
+          kontenUtama.classList.add("show");
+        }, 1000);
+      }
+    }
+
+
+    if (document.readyState === "complete") {
+      handleLoaded();
+    } else {
+      window.addEventListener("load", handleLoaded);
+    }
+  } else {
+    console.warn("Elemen aksaraLoader tidak ditemukan.");
+  }
+
+
+document.addEventListener('contextmenu', event => event.preventDefault());
+  document.onkeydown = function(e) {
+    if (
+      e.keyCode === 123 ||
+      (e.ctrlKey && e.shiftKey && e.keyCode === 'I'.charCodeAt(0)) ||
+      (e.ctrlKey && e.shiftKey && e.keyCode === 'C'.charCodeAt(0)) ||
+      (e.ctrlKey && e.shiftKey && e.keyCode === 'J'.charCodeAt(0)) ||
+      (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0)) ||
+      (e.ctrlKey && e.shiftKey && e.keyCode === 'K'.charCodeAt(0)) ||
+      (e.ctrlKey && e.shiftKey && e.keyCode === 'E'.charCodeAt(0)) ||
+      (e.ctrlKey && e.altKey && e.keyCode === 'I'.charCodeAt(0))
+    ) {
+      return false;
+    }
+  };
+
 
 
 

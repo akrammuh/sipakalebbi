@@ -5,8 +5,15 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Cerita rakyat - Sipakalebbi.id</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content="Sipakalebbi.id adalah Platform digital pelestarian budaya bugis & aksara Lontara">
+  <meta name="keywords" content="Aksara Bugis, Budaya Bugis, Sipakalebbi, Tulisan Lontara, Sejarah Bugis, Belajar Aksara Lontara">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Sipakalebbi.id | Merangkai Warisan Bugis dalam Wajah Digital">
+  <meta property="og:description" content="Platform digital untuk belajar dan melestarikan aksara dan budaya Bugis">
+  <meta property="og:url" content="https://www.sipakalebbi.id">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.sipakalebbi.id/assets/img/logoo.webp">
+
 
   <link href="assets/img/logoo.webp" rel="icon">
   <link href="assets/img/logoo.webp" rel="apple-touch-icon">
@@ -54,6 +61,11 @@ p ul {
 
 <body class="service-details-page">
 
+  <div id="preloader">
+    <div class="aksara-loader" id="aksaraLoader">ᨀ</div>
+    <p class="loading-text">Mohon bersabar, tunggu sebentar ya...</p>
+  </div>
+
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
@@ -87,7 +99,7 @@ p ul {
 
       <div class="header-social-links">
         <button id="theme-toggle" class="btn btn-sm ms-3" title="Toggle Dark/Light Mode">
-  <i class="bi bi-moon"></i> <!-- Bisa ganti dengan sun/moon -->
+  <i class="bi bi-moon"></i>
 </button>
       </div>
 
@@ -95,9 +107,9 @@ p ul {
     </div>
   </header>
 
-  <main class="main">
+  <main class="main" id="app">
 
-    <!-- Page Title -->
+
     <div class="page-title">
       <div class="breadcrumbs">
         <nav aria-label="breadcrumb">
@@ -117,7 +129,7 @@ Cerita rakyat Bugis, pantun, puisi, dan naskah Lontara yang merekam sejarah dan 
       </div>
     </div><!-- End Page Title -->
 
-    <!-- Service Details Section -->
+
     <section id="service-details" class="service-details section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -363,6 +375,10 @@ Cerita rakyat Bugis, pantun, puisi, dan naskah Lontara yang merekam sejarah dan 
 
   </footer>
 
+<a href="#" id="music-button" class="music-button">
+    <i class="bi bi-music-note-beamed"></i>
+  </a>
+  <audio id="background-music" src="assets/sounds/padduppa.mp3" preload="auto" loop></audio>
 
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

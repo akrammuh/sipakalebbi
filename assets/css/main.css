@@ -1977,3 +1977,91 @@ body, body * {
 }
 
 
+
+
+
+.music-button {
+  position: fixed;
+  bottom: -15px;
+  right: 15px;
+  width: 45px;
+  height: 45px;
+  background: #2F6E4C;
+  color: white;
+  border-radius: 50%;
+  z-index: 999;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.music-button.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 70px; 
+}
+
+
+.music-button i {
+  font-size: 1.5rem;
+  transition: transform 0.5s ease;
+}
+
+
+.putar {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e6f8ff;
+  z-index: 9999;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.aksara-loader {
+  font-size: 48px;
+  font-family: 'Noto Sans Bugis', sans-serif;
+  color: #2F6E4C;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.loading-text {
+  margin-top: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; /* bold */
+  color: #333;
+  font-size: 16px;
+  animation: pulseFade 1.6s ease-in-out infinite;
+}
+
+@keyframes pulseFade {
+  0% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-2px); }
+  100% { opacity: 0.4; transform: translateY(0); }
+}
+
